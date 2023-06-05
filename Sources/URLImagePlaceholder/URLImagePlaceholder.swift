@@ -37,6 +37,7 @@ public class URLImagePlaceholder: UIImageView {
                 DispatchQueue.main.async {
                     self?.image = nil
                     self?.fallbackLabel.isHidden = false
+                    print("fallbackText: \(fallbackText)")
                 }
             } else {
                 DispatchQueue.main.async {
