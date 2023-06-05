@@ -40,7 +40,9 @@ public class URLImagePlaceholder: UIImageView {
                 }
             } else {
                 DispatchQueue.main.async {
-                    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                    let httpResponse = response as? HTTPURLResponse
+                    print("httpResponse: \(httpResponse.statusCode)")
+                    if  httpResponse.statusCode != 200 {
                         self?.image = nil
                         self?.fallbackLabel.isHidden = false
                     } else {
