@@ -40,10 +40,15 @@ public class URLImagePlaceholder: UIImageView {
                 }
             } else {
                 DispatchQueue.main.async {
-                    if let data = data, let image = UIImage(data: data) {
-                        self?.image = image
+                    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                        self?.image = nil
+                        self?.fallbackLabel.isHidden = false
+                    } else {
+                        if let data = data, let image = UIImage(data: data) {
+                            self?.image = image
+                        }
+                        self?.fallbackLabel.isHidden = true
                     }
-                    self?.fallbackLabel.isHidden = true
                 }
             }
         }
