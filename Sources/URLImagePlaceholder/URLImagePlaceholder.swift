@@ -42,10 +42,10 @@ public class URLImagePlaceholder: UIImageView {
                 DispatchQueue.main.async {
                     let httpResponse = (response as? HTTPURLResponse)!
                     print("httpResponse: \(httpResponse.statusCode)")
-                    if  httpResponse.statusCode != 200 {
+                    if  httpResponse.statusCode == 404 {
                         self?.image = nil
                         self?.fallbackLabel.isHidden = false
-                    } else {
+                    } else if httpResponse.statusCode == 200 {
                         if let data = data, let image = UIImage(data: data) {
                             self?.image = image
                         }
