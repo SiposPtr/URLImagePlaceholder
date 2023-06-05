@@ -7,7 +7,7 @@ public class URLImagePlaceholder: UIImageView {
         return label
     }()
     
-    public init(fallbackText: String? = nil, fallbackTextColor: UIColor = .white, fallbackTextFont: UIFont = UIFont.systemFont(ofSize: 18, weight: .bold), frame: CGRect) {
+    public init(fallbackText: String? = nil, fallbackTextColor: UIColor = .black, fallbackTextFont: UIFont = UIFont.systemFont(ofSize: 18, weight: .bold), frame: CGRect) {
         super.init(frame: frame)
         setupViews()
         self.fallbackText = fallbackText
