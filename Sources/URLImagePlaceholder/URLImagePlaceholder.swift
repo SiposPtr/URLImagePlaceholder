@@ -46,6 +46,8 @@ public class URLImagePlaceholder: UIImageView {
                     if  httpResponse.statusCode == 404 {
                         self?.image = nil
                         self?.fallbackLabel.isHidden = false
+                        print("fallbackText: \(fallbackText)")
+
                     } else if httpResponse.statusCode == 200 {
                         if let data = data, let image = UIImage(data: data) {
                             self?.image = image
